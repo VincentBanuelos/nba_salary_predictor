@@ -15,11 +15,31 @@ def get_salaries():
     salaries.rename(columns = {'season17_18' : 'salary'},inplace=True)
     return salaries.set_index('Player').sort_index(ascending=True)
 
-
+def get_advstats():
+    advstats = pd.read_csv('advstats.csv')
+    return advstats.set_index('Player').sort_index(ascending=True)
 
 def prepare_ss():
     stats = get_players_stats()
     salaries = get_salaries()
+    advstats = get_advstats()
+
+    # Combining stats and adv stats
+    stats = stats.merge(advstats, how = 'outer', left_on = ['Player'],right_on = ['Player'])
+
+    stats['above_avg_scorer'] = stats['PPG'] >= 16.15
+    stats['above_avg_scorer'] = stats['above_avg_scorer'].astype(int)
+
+    stats['above_avg_3ball'] = stats['3P_PCT'] >= .362
+    stats['above_avg_3ball'] = stats['above_avg_3ball'].astype(int)
+
+    stats['above_avg_ft'] = stats.FT_PCT >= .767
+    stats['above_avg_ft'] = stats['above_avg_ft'].astype(int)
+
+    stats['above_avg_ts'] = stats.TS_PCT >= .556
+    stats['above_avg_ts'] = stats['above_avg_ts'].astype(int)
+
+    #Combining all stats and salaries.
     ss = stats.merge(salaries, how = 'outer', left_on = ['Player'],right_on = ['Player'])
     # Changing all columns to lower case
     ss.columns = [col.lower() for col in ss.columns]
@@ -27,18 +47,6 @@ def prepare_ss():
     ss.replace({'F-C': 'F', 'C-F': 'C', 'G-F': 'G', 'F-G': 'F'},inplace=True)
     # Dropping nulls for players with incomplete stats or no salary.
     ss = ss.dropna()
-
-    ss['above_avg_scorer'] = ss['ppg'] >= 16.15
-    ss['above_avg_scorer'] = ss['above_avg_scorer'].astype(int)
-
-    ss['above_avg_3ball'] = ss['3p_pct'] >= .362
-    ss['above_avg_3ball'] = ss['above_avg_3ball'].astype(int)
-
-    ss['above_avg_ft'] = ss.ft_pct >= .767
-    ss['above_avg_ft'] = ss['above_avg_ft'].astype(int)
-
-    ss['above_avg_ts'] = ss.ts_pct >= .556
-    ss['above_avg_ts'] = ss['above_avg_ts'].astype(int)
     return ss
 
 def my_split(df):
