@@ -26,7 +26,8 @@ def prepare_ss():
 
     # Combining stats and adv stats
     stats = stats.merge(advstats, how = 'outer', left_on = ['Player'],right_on = ['Player'])
-
+    
+    # Feature Engineering feature's i think will assit in providing accurate model.
     stats['above_avg_scorer'] = stats['PPG'] >= 16.15
     stats['above_avg_scorer'] = stats['above_avg_scorer'].astype(int)
 
@@ -38,6 +39,9 @@ def prepare_ss():
 
     stats['above_avg_ts'] = stats.TS_PCT >= .556
     stats['above_avg_ts'] = stats['above_avg_ts'].astype(int)
+
+    stats['above_avg_usg_pct'] = stats.USG_PCT >= stats.USG_PCT.mean()
+    stats['above_avg_usg_pct'] = stats['above_avg_usg_pct'].astype(int)
 
     #Combining all stats and salaries.
     ss = stats.merge(salaries, how = 'outer', left_on = ['Player'],right_on = ['Player'])
