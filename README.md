@@ -73,7 +73,7 @@ ___
 
 You will need your own env.py file with database credentials then follow the steps below:
 
-  - Download the csv files, wrangle.py, model.py, explore.py, and final_report.ipynb files
+  - Download the csv files, allplayers_wrangle.py, model.py, explore.py, and final_report.ipynb files
   - Run the final_report.ipynb notebook
 
 [[Back to top](#top)]
