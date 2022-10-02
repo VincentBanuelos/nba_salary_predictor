@@ -17,7 +17,7 @@ ___
 ## <a name="project_description_goals"></a>Project Description/Goals:
 - Using both basic stats and advanced stats can I predict an NBA player's salary as well as what which stat(s) are the biggest driver's of an NBA players Salary.
 
-- This project runs through the entire Data Science Pipeline using regression models to attmept to predict NBA PLayers' salaries.
+- This project runs through the entire Data Science Pipeline using regression models to attmept to predict NBA Players' salaries.
 
 [[Back to top](#top)]
 
