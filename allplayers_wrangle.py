@@ -26,7 +26,7 @@ def prepare_ss():
 
     # Combining stats and adv stats
     stats = stats.merge(advstats, how = 'outer', left_on = ['Player'],right_on = ['Player'])
-    
+
     # Feature Engineering feature's i think will assit in providing accurate model.
     stats['above_avg_scorer'] = stats['PPG'] >= 16.15
     stats['above_avg_scorer'] = stats['above_avg_scorer'].astype(int)
@@ -49,6 +49,11 @@ def prepare_ss():
     ss.columns = [col.lower() for col in ss.columns]
     # Replacing dual position players to guard, wings, big men.
     ss.replace({'F-C': 'F', 'C-F': 'C', 'G-F': 'G', 'F-G': 'F'},inplace=True)
+
+    dummies = pd.get_dummies(ss['pos'],drop_first=False,dtype=float)
+    ss = pd.concat([ss, dummies], axis=1)
+    # Dropping rk column which was basketbal refernce's index as well as player's team
+    ss.drop(columns=['rk','team'],inplace=True)
     # Dropping nulls for players with incomplete stats or no salary.
     ss = ss.dropna()
     return ss
