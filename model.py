@@ -76,6 +76,9 @@ xvals = xvals[['ppg','ft_pct','usg_pct','vorp','ts_pct','age','ws','ast', 'stl',
 xtests = xtests[['ppg','ft_pct','usg_pct','vorp','ts_pct','age','ws','ast', 'stl', 'blk', 'tov', 'pf']]
 
 def model_eval():
+    '''
+    Runs several models for both the train and validate samples and returns the results in a clean dataframe.
+    '''
     pred_mean = y_train.salary.mean()
     y_train['pred_mean'] = pred_mean
     y_val['pred_mean'] = pred_mean
@@ -170,7 +173,10 @@ def model_eval():
     return metric_df
 
 def final_model_test():
-
+    '''
+    Using our best performing model, returna dataframe that shows how the model 
+    performed on all 3 samples of data as well as how the baseline model compares.
+    '''
     #baseline model
     pred_mean = y_train.salary.mean()
     y_train['pred_mean'] = pred_mean

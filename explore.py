@@ -19,6 +19,9 @@ from allplayers_wrangle import wrangle_ss
 train, val, test = wrangle_ss()
 
 def fe_plot():
+    '''
+    Function will return a graph showing salary difference between players above and below selected stats
+    '''
     shooting_stats = ['above_avg_scorer','above_avg_3ball','above_avg_ft','above_avg_ts']
 
     for i in shooting_stats:
@@ -27,6 +30,9 @@ def fe_plot():
     return
 
 def fe_test():
+    '''
+    Statistical test that sees if players with both an above average True Shooting Percentage and Points Per Game make more than players not above average in TS and PPG
+    '''
     not_a_baller = train[(train.above_avg_scorer == 0)&(train.above_avg_ts == 0)].salary
     baller = train[(train.above_avg_scorer == 1)&(train.above_avg_ts == 1)].salary
 
@@ -51,11 +57,17 @@ def fe_test():
     return
 
 def usg_pt_plot():
+    '''
+    Returns a graph that shows how a players Usage Percentage relates to their salary
+    '''
     sns.lmplot(x='usg_pct', y='salary', data=train, height=10)
     plt.show()
     return
 
 def usg_pct_test():
+    '''
+    Returns statistical test that see's if a players usage percentage affects their salary.
+    '''
     notta_floor_general = train[train.above_avg_usg_pct == 0].salary
     floor_general = train[train.above_avg_usg_pct == 1].salary
 
@@ -80,11 +92,17 @@ def usg_pct_test():
     return
 
 def vorp_plot():
+    '''
+    Returns a graph showing a players VORP in relation to their salary.
+    '''
     sns.lmplot(x='vorp', y='salary', data=train, height=10)
     plt.show()
     return
 
 def vorp_test():
+    '''
+    Returns statistical test that sees if a players VORP affects their salary.
+    '''
     below_avg_vorp = train[train.vorp < train.vorp.mean()].salary
     above_avg_vorp = train[train.vorp >= train.vorp.mean()].salary
 
@@ -109,11 +127,17 @@ def vorp_test():
     return
 
 def pos_plot():
+    '''
+    Returns a graph that shows a players position in relatino to salary.
+    '''
     sns.boxplot(x='pos', y='salary', data=train)
     plt.show()
     return
 
 def pos_test():
+    '''
+    Returns statistical test that sees if on average centers make more than the nba player on average.
+    '''
     centers_sal = train[train.pos == 'C'].salary
     league_avg_sal = train.salary.mean()
 
