@@ -92,10 +92,23 @@ ___
 | obpm |  Offensive Box Plus/Minus | float |
 | dbpm |  Offensive Box Plus/Minus | float |
 | vorp|  Value Over Replacement Player; a box score estimate of the points per 100 TEAM possessions that a player contributed above a replacement-level (-2.0) player, translated to an average team and prorated to an 82-game season.|float|
-| per| Player Efficiency Rating; PER sums up all a player's positive accomplishments, subtracts the negative accomplishments, and returns a per-minute rating of a player's performance.|float|
+|per| Player Efficiency Rating; PER sums up all a player's positive accomplishments, subtracts the negative accomplishments, and returns a per-minute rating of a player's performance.|float|
+|orb_pct| An estimate of the percentage of available offensive rebounds a player grabbed while they were on the floor| float |
+|drb_pct| An estimate of the percentage of available defensive rebounds a player grabbed while they were on the floor| float |
+|trb_pct| An estimate of the percentage of available rebounds a player grabbed while they were on the floor| float |
+|ast_pct| Assist percentage is an estimate of the percentage of teammate field goals a player assisted while he was on the floor.| float |
+|stl_pct| Steal Percentage is an estimate of the percentage of opponent possessions that end with a steal by the player while he was on the floor.| float |
+|blk_pct| Block percentage is an estimate of the percentage of opponent two-point field goal attempts blocked by the player while he was on the floor.| float |
+|tov_pct| Turnover percentage is an estimate of turnovers per 100 plays.| float|
+|usg_pct| Usage percentage is an estimate of the percentage of team plays used by a player while he was on the floor.|float|
+|above_avg_scorer| 1 if a player is above the league average in scoring. 0 if not above average.|float|
+|above_avg_3ball| 1 if a player is above the league average in 3pt %. 0 if not above average.|float|
+|above_avg_ft| 1 if a player is above the league average in Freethrow %. 0 if not above average.|float|
+|above_avg_usg_pct| 1 if a player is above the league average in Usage %. 0 if not above average.|float|
+|C| 1 if a player is a Center. 0 if not.|float|
+|F| 1 if a player is a Forward. 0 if not.|float|
+|G| 1 if a player is a Guard. 0 if not.|float|
 
-
-| house_lotsize_ratio| Gives the percentage of land a house takes up out of the lotsize| float |
 
 ---
 
