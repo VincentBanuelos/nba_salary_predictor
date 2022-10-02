@@ -20,6 +20,10 @@ def get_advstats():
     return advstats.set_index('Player').sort_index(ascending=True)
 
 def prepare_ss():
+    '''
+    Using our best performing model, returna dataframe that shows how the model
+    performed on all 3 samples of data as well as how the baseline model compares.
+    '''
     stats = get_players_stats()
     salaries = get_salaries()
     advstats = get_advstats()
@@ -68,6 +72,9 @@ def my_split(df):
     return train, val, test
 
 def wrangle_ss():
+    '''
+    Splitting dataset into three sub datasets to prevent data leakage.
+    '''
     ss = prepare_ss()
     train, val, test = my_split(ss)
 
