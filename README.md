@@ -51,20 +51,50 @@ ___
 
 | Target Attribute | Definition | Data Type |
 | ----- | ----- | ----- |
-|logerror|The difference betwen the log of the Zestimate and the log of the sale price|float|
+|salary|The NBA Player's salary for the 2017-2018 season|float|
 ---
 | Feature | Definition | Data Type |
 | ----- | ----- | ----- |
-| county | Name of county property is located in| object |
-| yearbuilt |  The Year the principal residence was built| float |
-| tax_value |  The total tax assessed value of the parcel | float |
-| structuretaxvaluedollarcnt | The assessed value of the built structure on the parcel| float |
-| landtaxvaluedollarcnt | The assessed value of the land area of the parcel | float |
-| latitude |  Latitude of the middle of the parcel multiplied by 10e6 | float |
-| longitude |  Longitude of the middle of the parcel multiplied by 10e6 | float |
-| los_angeles| 1 if the house is located within Los Angeles County|int|
-| orange| 1 if the house is located within Orange County|int|
-| ventura| 1 if the house is located within Ventura County|int|
+| age | Player's Age on Feb 1 of the season| float |
+| gp |  Games Played in 2017-2018 season| float |
+| gs |  Games Started in 2017-2018 season| float |
+| mp |  Minutes Played in 2017-2018 season| float |
+| fg |  Number of Field Goals made in 2017-2018 season| float |
+| fga |  Number of Field Goals attempted in 2017-2018 season| float |
+| 2p |  Number of 2-pointers made in 2017-2018 season| float |
+| 2pa |  Number of 2-pointers attempted in 2017-2018 season| float |
+| 3p |  Number of 3-pointers made in 2017-2018 season| float |
+| 3pa |  Number of 3-pointers attempted in 2017-2018 season| float |
+| ft |  Number of Freethrows made in 2017-2018 season| float |
+| fta |  Number of Freethrows attempted in 2017-2018 season| float |
+| orb | Offensive rebounds per game | float |
+| drb | Defensive rebounds per game | float |
+| trb | Total rebounds per game | float |
+| ast| Asists per game|float|
+| stl| Steals per game|float|
+| blk| Blocks per game|float|
+| tov| Turnovers per game|float|
+| pf| Personal Fouls per game|float|
+| ppg| Points per game|float|
+| fg_pct| Field Goal Percentage|float|
+| 2p_pct| 2 Point Field Goal Percentage|float|
+| 3p_pct| 3 Point Field Goal Percentage|float|
+| ft_pct| Freethrow Percentage|float|
+| ts_pct| True Shooting Percentage, True shooting percentage is a measure of shooting efficiency that takes into account field goals, 3-point field goals, and free throws.|float|
+| efg_pct| Effective Field Goal Percentage, This statistic adjusts for the fact that a 3-point field goal is worth one more point than a 2-point field goal|float|
+| pos |  Player's position|object|
+| ws | Win Shares; an estimate of the number of wins contributed by a player. | float |
+| ortg | Offensive Rating for players it is points produced per 100 posessions| float |
+| drtg |Defensive Rating for players it is points allowed per 100 posessions.| float |
+| ows| Offensive Win Shares | float |
+| dws| Defensive Win Shares | float |
+| bpm| Box Plus/Minus a box score estimate of the points per 100 possessions that a player contributed above a league-average player, translated to an average team. | float |
+| obpm |  Offensive Box Plus/Minus | float |
+| dbpm |  Offensive Box Plus/Minus | float |
+| vorp|  Value Over Replacement Player; a box score estimate of the points per 100 TEAM possessions that a player contributed above a replacement-level (-2.0) player, translated to an average team and prorated to an 82-game season.|float|
+| per| Player Efficiency Rating; PER sums up all a player's positive accomplishments, subtracts the negative accomplishments, and returns a per-minute rating of a player's performance.|float|
+
+
 | house_lotsize_ratio| Gives the percentage of land a house takes up out of the lotsize| float |
 
 ---
